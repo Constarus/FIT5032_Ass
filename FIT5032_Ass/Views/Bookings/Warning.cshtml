@@ -1,0 +1,15 @@
+﻿
+
+@model FIT5032_Ass.Models.Booking
+
+@{
+    ViewBag.Title = "Warning";
+
+}
+
+<h2>Cannot book the room:</h2>
+<h3>The room is already booked in this time. Change your room or date to continue.</h3>
+
+<div>
+    @Html.ActionLink("Back to Booking", "Create")
+</div>

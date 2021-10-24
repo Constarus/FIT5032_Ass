@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <img src="~/Content/logo.png" />
+    <p class="lead">Ultra gives you one of the most comfortable environment and equipment in Australia.</p>
+    <p><a href="https://localhost:44397/Home/About" class="btn btn-primary btn-lg">More about Ultra &raquo;</a></p>
+</div>
+
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h3>                     Welcome!</h3> @User.Identity.Name
+
+}
+else
+{
+<h3>                     Welcome guest</h3>
+<h4>                     To use more functions, you need to Register.</h4>
+}
+
+<SCRIPT Language="JavaScript">
+    var msg = "Welcome to Ultra Hotel ---";
+    var interval = 170;
+    var space10 = " ";
+    var seq = 1;
+    function Scroll1() {
+        document.tmForm.tmText.value = msg.substring(0, seq + 1);
+        seq++;
+        if (seq >= msg.length) {
+            seq = 0;
+            window.setTimeout("Scroll2();", interval);
+        }
+        else
+            window.setTimeout("Scroll1();", interval);
+    }
+    function Scroll2() {
+        document.tmForm.tmText.value = msg.substring(seq, msg.length) + space10 + msg.substring(0, msg.length);
+        seq++; seq++;
+        if (seq > msg.length) { seq = 0 };
+        window.setTimeout("Scroll2();", interval);
+    }
+</SCRIPT>
+<body OnLoad="Scroll1();">
+    <CENTER>
+        <FORM Name=tmForm>
+            <INPUT Name=tmText Size=1500 style="background-color: #000000; color: #00a7dd; border-style: groove">
+        </FORM>
+    </CENTER>
+</body>
+
+<img src="~/Content/hotel1.png" height="1000" width="1000"/>
+<img src="~/Content/Hotel2.png" height="1000" width="1000"/>
